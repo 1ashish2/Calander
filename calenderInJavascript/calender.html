@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="page">
+        <div id="calender" >
+            <select class="mn"></select>
+            <select class="ye"></select>
+            <ul class="first">
+                <li>Su</li>
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>Wd</li>
+                <li>Th</li>
+                <li>F</li>
+                <li>Sa</li>
+            </ul>
+          <ul class="second days">
+             
+          </ul>
+        </div>
+    </div>
+    <script>
+        const calender=document.querySelector('#calender');
+       
+    const months=['January','February','March','April','May','June','July','August','September','October','November','december'];
+    const daysWrapper=document.querySelector('.days')
+    const date=new Date();
+    const select=document.querySelector('.mn')
+    const yearSelect=document.querySelector('.ye')
+    const month=[];
+    const yr=[]
+    months.forEach((element,index)=>
+    {
+      
+        month.push(`<option ${index==date.getMonth()?'selected':''} value="${index}">${element}</option>`);
+        
+    })
+   for(let i=2000;i<=2020;i++)
+   {
+    yr.push(`<option ${i==date.getFullYear()?'selected':''} value="${i}">${i}</option>`);
+   }
+    
+    select.innerHTML=month.join("");
+    yearSelect.innerHTML=yr.join("");
+    const year=date.getFullYear();
+    let mth=date.getMonth();
+    //console.log(new Date(2019,12,0));
+    select.onchange=(event)=>
+    {
+        const selectMonth=Number(event.target.value);
+        //console.log(mth+1);
+        const yselect=yearSelect.value;
+        createCalender(yselect,selectMonth);
+    }
+    yearSelect.onchange=(event)=>
+    {
+        const selectYear=Number(event.target.value);
+        //console.log(selectYear);
+        const mselect=select.value;
+        createCalender(selectYear,mselect);
+    }
+    
+    createCalender();
+    function createCalender(selectYear=year,selectMonth= mth){
+    const totalDays=function(y,m)
+    {
+       
+        return new Date(y,m+1,0).getDate();
+    }
+    //const totalDays=new Date(selectYear,selectMonth+1,0).getDate(); 
+    const tds=totalDays(selectYear,selectMonth);
+
+    console.log(tds);
+    const dayHtml=[];
+    
+    for(let i=1;i<=tds;i++)
+    {    
+        dayHtml.push(`<li style="${i==1?'margin-left:'+(44*new Date(selectYear,selectMonth,1).getDay())+'px':''}" class="${i== date.getDate()?'active':''}"">${i}</li>`);
+    }
+    //console.log(new Date(selectYear,selectMonth,1).getDay());
+   
+    daysWrapper.innerHTML=dayHtml.join("")
+    }
+    </script>
+</body>
+</html>

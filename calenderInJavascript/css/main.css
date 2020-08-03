@@ -1,0 +1,87 @@
+#page{
+    width:1000px;
+    height:600px;
+    margin:0px auto;
+    font:13px Arial,sans-serif;
+    
+}
+#tabs{
+    padding:20px;
+
+}
+#tabs ul li{
+    padding: 10px;
+    margin-right: 5px;
+    border: 1px solid blue;
+    float: left;
+    cursor: pointer;
+}
+#tabs ul li.active{
+   background-color: palevioletred;
+   font-weight: bold;
+   color: black;
+}
+.tabcontent{
+    clear:left;
+    padding: 10px;
+    height:200px;
+    width:940px;
+    border: 1px solid orange;
+   
+}
+
+#tabs #pagination
+{
+    clear:left;
+    padding: 10px;
+    width:940px;
+}
+#tabs #pagination ul,#tabs #pagination span
+{
+   float:left;
+   cursor: pointer;
+}
+#tabs #pagination ul{
+    float:left;
+    padding:5px;
+}
+#pagination span
+{ padding-top: 10px;
+    
+}
+
+
+#calender{
+    width: 350px;
+    min-height:200px;
+    margin-top: 50px;
+}
+
+#calender ul li{
+    list-style: none;
+    width:40px;
+    height:28px;
+    text-align:center;
+    margin-right:2px;
+    border:1px solid green;
+    margin-bottom:2px;
+    float:left;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+#calender ul.second li:first-child{
+    margin-left:132px;
+}
+
+#calender ul.second li.active{
+    background-color: plum;
+}
+.mn{
+    margin-left:40px;
+}
+.ye{
+   margin-left: 10px;
+}
+
+
